@@ -41,8 +41,6 @@ scd30.start_periodic_measurement()
 
 time.sleep(1)
 
-
-
 #### MAIN CONTROL LOOP ##
 
 while True:
@@ -58,16 +56,17 @@ while True:
             if sps.read_measured_values() == sps.MEASURED_VALUES_ERROR:
                 print("sps data read error")
             else:
-                print ("PM1.0 Value in µg/m3: " + str(sps.dict_values['pm1p0']))
-                print ("PM2.5 Value in µg/m3: " + str(sps.dict_values['pm2p5']))
-                print ("PM4.0 Value in µg/m3: " + str(sps.dict_values['pm4p0']))
-                print ("PM10.0 Value in µg/m3: " + str(sps.dict_values['pm10p0']))
-                print ("NC0.5 Value in 1/cm3: " + str(sps.dict_values['nc0p5']))    # NC: Number of Concentration 
-                print ("NC1.0 Value in 1/cm3: " + str(sps.dict_values['nc1p0']))
-                print ("NC2.5 Value in 1/cm3: " + str(sps.dict_values['nc2p5']))
-                print ("NC4.0 Value in 1/cm3: " + str(sps.dict_values['nc4p0']))
-                print ("NC10.0 Value in 1/cm3: " + str(sps.dict_values['nc10p0']))
-                print ("Typical Particle Size in µm: " + str(sps.dict_values['typical']))	
+                print(f"PM2.5: {sps.dict_values['pm2p5']}µg/mg, NC2.5: {sps.dict_values['nc2p5']} 1/cm3")
+               # print ("PM1.0 V$alue in µg/m3: " + str(sps.dict_values['pm1p0']))
+               # print ("PM2.5 Value in µg/m3: " + str(sps.dict_values['pm2p5']))
+               # print ("PM4.0 Value in µg/m3: " + str(sps.dict_values['pm4p0']))
+               # print ("PM10.0 Value in µg/m3: " + str(sps.dict_values['pm10p0']))
+               # print ("NC0.5 Value in 1/cm3: " + str(sps.dict_values['nc0p5']))    # NC: Number of Concentration 
+               # print ("NC1.0 Value in 1/cm3: " + str(sps.dict_values['nc1p0']))
+               # print ("NC2.5 Value in 1/cm3: " + str(sps.dict_values['nc2p5']))
+               # print ("NC4.0 Value in 1/cm3: " + str(sps.dict_values['nc4p0']))
+               # print ("NC10.0 Value in 1/cm3: " + str(sps.dict_values['nc10p0']))
+               # print ("Typical Particle Size in µm: " + str(sps.dict_values['typical']))	
     else:
         time.sleep(0.2)
 
